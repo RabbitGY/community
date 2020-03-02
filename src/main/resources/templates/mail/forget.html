@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="http://q2sxue92w.bkt.clouddn.com/u=2491588266,1963864761&fm=26&gp=0.jpg"/>
+    <title>忘记密码</title>
+</head>
+<body>
+	<div>
+		<p>
+			<b th:text="${email}">xxx@xxx.com</b>, 您好!
+		</p>
+		<p>
+			您正在找回密码, 本次操作的验证码为 <b th:text="${verifyCode}">u5s6dt</b> ,
+			有效时间5分钟, 请您及时进行操作!
+		</p>
+	</div>
+</body>
+</html>
