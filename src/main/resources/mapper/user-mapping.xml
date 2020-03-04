@@ -32,7 +32,7 @@
     </select>
 
     <insert id="insertUser" parameterType="User" keyProperty="id">
-        insert into User <include refid="insertFields"></include>
+        insert into User (<include refid="insertFields"></include>)
         values (#{username},#{password},#{salt},#{email},#{type},#{status},#{activationCode},#{headerUrl},#{createTime})
     </insert>
 

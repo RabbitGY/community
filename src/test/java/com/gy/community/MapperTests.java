@@ -1,8 +1,10 @@
 package com.gy.community;
 
 import com.gy.community.dao.DiscussPostMapper;
+import com.gy.community.dao.LoginTicketMapper;
 import com.gy.community.dao.UserMapper;
 import com.gy.community.entity.DiscussPost;
+import com.gy.community.entity.LoginTicket;
 import com.gy.community.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -23,6 +26,9 @@ public class MapperTests {
     @Autowired
     private DiscussPostMapper discussPostMapper;
 
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+
     @Test
     public void testSelectUser(){
         List<DiscussPost> res = discussPostMapper.selectDiscussPosts(0,0,10);
@@ -32,6 +38,11 @@ public class MapperTests {
 
         int ress = discussPostMapper.selectDiscussPostRows(101);
         System.out.println(ress);
+    }
+
+    @Test
+    public void testLoginTicket(){
+        loginTicketMapper.updateStatus("aaaaaa", 1);
     }
 
 
