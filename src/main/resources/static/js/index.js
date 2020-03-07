@@ -22,13 +22,16 @@ function publish() {
 	    function(data){
 	        data = $.parseJSON(data);
 	        $("#hintBody").text(data.msg);
-	        $("#gintModel").modal("show");
+	        //显示提示框
+	        $("#hintModel").modal("show");
+	        //2s后，自动隐藏提示框
 	        setTimeout(function(){
 	            $("#hintModel").modal("hide");
+	            //刷新页面
 	            if(data.code == 0){
 	                window.location.reload();
 	            }
-	        }, 1000);
+	        }, 2000);
 	    }
 	);
 

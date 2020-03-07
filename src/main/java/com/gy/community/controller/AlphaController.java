@@ -1,5 +1,6 @@
 package com.gy.community.controller;
 
+import com.gy.community.utils.CommunityUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,5 +28,13 @@ public class AlphaController {
         System.out.println(session.getAttribute("id"));
         System.out.println(session.getAttribute("name"));
         return "get session";
+    }
+
+    //ajax示例
+    @RequestMapping(path = "/ajax", method = RequestMethod.POST)
+    @ResponseBody
+    public String testAjax(String name, String age){
+        System.out.println(name + "/" + age);
+        return CommunityUtil.getJSONString(0, "ok");
     }
 }
