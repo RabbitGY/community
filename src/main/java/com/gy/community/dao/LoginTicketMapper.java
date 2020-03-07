@@ -4,6 +4,7 @@ import com.gy.community.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+@Deprecated//用redis重构l
 public interface LoginTicketMapper {
     //用注解写sql优点少一个文件，缺点是不方便阅读，写标签不方便
     @Insert({
