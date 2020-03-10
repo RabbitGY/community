@@ -34,5 +34,11 @@
         insert into comment (<include refid="insertFileds"></include>)
         values(#{userId},#{entityType},#{entityId},#{targetID},#{content},#{status},#{createTime})
     </insert>
+    
+    <select id="selectCommentById" resultType="Comment">
+        select <include refid="selectFileds"></include>
+        from comment
+        where id = #{id}
+    </select>
 
 </mapper>

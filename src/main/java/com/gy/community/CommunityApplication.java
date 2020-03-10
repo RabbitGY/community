@@ -4,6 +4,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @SpringBootApplication由
  * @SpringBootConfiguration表明该类是配置文件
@@ -12,6 +14,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class CommunityApplication {
+
+	@PostConstruct
+	public void init(){
+		// 解决netty启动冲突问题，redis和es底层依赖netty
+		//Netty4Utils.setAvailableProcessors
+		System.setProperty("es.set.netty.runtime.available.processors", "false");
+	}
 
 	public static void main(String[] args) {
 		//spring应用程序启动了，底层自动创建spring容器，创建之后会自动扫描某些包下的某些bean，将这些bean装配到容器中
