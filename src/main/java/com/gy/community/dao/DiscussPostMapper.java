@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface DiscussPostMapper {
-    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit);
+    List<DiscussPost> selectDiscussPosts(int userId, int offset, int limit, int orderMode);
 
     //@Param("userId")给参数取别名
     //若只有这一个参数，而且用到<if>动态条件，必须加别名
@@ -21,4 +21,6 @@ public interface DiscussPostMapper {
 
     //增加帖子评论数量
     int updateCommentCount(int id, int commentCount);
+
+    int updateScore(int id, double score);
 }

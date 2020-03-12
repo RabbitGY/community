@@ -114,7 +114,6 @@ public class MessageController implements CommunityConstant {
     @RequestMapping(path = "/letter/send", method = RequestMethod.POST)
     @ResponseBody
     public String sendLetter(String toName, String content){
-        Integer.parseInt("asb");
         User target = userService.findUserByName(toName);
         if (StringUtils.isBlank(content)){
             return CommunityUtil.getJSONString(1, "消息不能为空");
